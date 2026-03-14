@@ -40,7 +40,7 @@
 </div>
 
 <div class="screen" id="l1">
-    <div class="Yuvraj">
+    <div class="letter">
         <h2>A Letter From Yuvraj</h2>
         <img src="./yuvraj.jpeg">
         <p>
@@ -57,7 +57,7 @@
 </div>
 
 <div class="screen" id="l2">
-    <div class="Shree">
+    <div class="letter">
         <h2>A Letter from Shree</h2>
         <img src="./shree.jpeg">
         <p>
@@ -71,7 +71,7 @@
 </div>
 
 <div class="screen" id="l3">
-    <div class="Dhatrii">
+    <div class="letter">
         <h2>A Letter from Dhatri</h2>
         <img src="./dhatrii.jpeg">
         <p>
@@ -91,7 +91,7 @@
 </div>
 
 <div class="screen" id="l4">
-    <div class="Meghanaa">
+    <div class="letter">
         <h2>A Letter from Meghana</h2>
         <img src="./meghana.jpeg">
         <p>
@@ -134,13 +134,27 @@
     </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
 <script>
-    function show(id){
-        document.querySelectorAll(".screen").forEach(s=>{
-            s.classList.remove("active");
+function show(id){
+    // Trigger confetti on big moments
+    if(id === 'cake' || id === 'memories'){
+        confetti({
+            particleCount: 150,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ['#ff7aa8', '#ff4d88', '#ffffff']
         });
-        document.getElementById(id).classList.add("active");
     }
+
+    document.querySelectorAll(".screen").forEach(s=>{
+        s.classList.remove("active");
+    });
+
+    document.getElementById(id).classList.add("active");
+    window.scrollTo(0, 0); 
+}
 </script>
 
 </body>
